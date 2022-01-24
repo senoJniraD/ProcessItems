@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ProcessItems.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-GN105NK;Integrated Security=False;User Id=Diskobat;Password=Atc200x1&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-GN105NK;Integrated Security=False;User Id=Diskobat;Password=Atc200x1</Value>
+    </Setting>
+    <Setting Name="ArchivePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z:\AIOTest\</Value>
+    </Setting>
+    <Setting Name="DefPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z:\AIOTest\</Value>
+    </Setting>
+    <Setting Name="unZipFldrName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\Images</Value>
+    </Setting>
+    <Setting Name="WTName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TEST_Processing_WT_</Value>
+    </Setting>
+    <Setting Name="InsertDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test_2</Value>
+    </Setting>
+    <Setting Name="PubDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test_2</Value>
+    </Setting>
+    <Setting Name="ArchiveFldrName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\Archive\\</Value>
+    </Setting>
+    <Setting Name="ImgSelList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,2,5,6,7</Value>
+    </Setting>
+    <Setting Name="DocSelList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,2,8,9,10</Value>
+    </Setting>
+    <Setting Name="DesSelList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,2,3,4,5</Value>
+    </Setting>
+    <Setting Name="FeaSelList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,2,11,12,13</Value>
+    </Setting>
+    <Setting Name="KeySelList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,2,3,14,15</Value>
+    </Setting>
+    <Setting Name="VidSelList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,2,3,12,15</Value>
+    </Setting>
+    <Setting Name="Version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Alpha1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
