@@ -10,12 +10,19 @@ namespace ProcessItems
     {
 
         string ConString = Properties.Settings.Default.ConString;
-        string Archive = Properties.Settings.Default.ArchivePath;
-        string ArchFldr = Properties.Settings.Default.ArchiveFldrName;
+        string ArchivePath = Properties.Settings.Default.ArchivePath;
         string DefPath = Properties.Settings.Default.DefPath;
-        string ZipDir = Properties.Settings.Default.unZipFldrName;
-        string DataDB = Properties.Settings.Default.InsertDB;
-        string WTHeader = Properties.Settings.Default.WTName;
+        string unZipFldrName = Properties.Settings.Default.unZipFldrName;
+        string WTName = Properties.Settings.Default.WTName;
+        string InsertDB = Properties.Settings.Default.InsertDB;
+        string PubDB = Properties.Settings.Default.PubDB;
+        string ArchiveFldrName = Properties.Settings.Default.ArchiveFldrName;
+        string ImgSelList = Properties.Settings.Default.ImgSelList;
+        string DocSelList = Properties.Settings.Default.DocSelList;
+        string DesSelList = Properties.Settings.Default.DesSelList;
+        string FeaSelList = Properties.Settings.Default.FeaSelList;
+        string KeySelList = Properties.Settings.Default.KeySelList;
+        string VidSelList = Properties.Settings.Default.VidSelList;
 
 
         public Main()
@@ -25,7 +32,6 @@ namespace ProcessItems
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             label2.Text = "Logged In As: " + Environment.UserName;
         }
 
@@ -63,7 +69,7 @@ namespace ProcessItems
             for (int i = 0; i <= DGV.Count - 1; i++)
             {
                 extpath = DGV[i].Value.ToString();
-                ZipFile.ExtractToDirectory(extpath, Path.GetDirectoryName(extpath) + ZipDir);
+                ZipFile.ExtractToDirectory(extpath, Path.GetDirectoryName(extpath) + unZipFldrName);
             }
 
         }
@@ -92,7 +98,7 @@ namespace ProcessItems
 
             filename = Path.GetFileName(extpath);
             {
-                System.IO.File.Copy(extpath, Path.GetDirectoryName(extpath) + ArchFldr + filename);
+                System.IO.File.Copy(extpath, Path.GetDirectoryName(extpath) + ArchiveFldrName + filename);
 
                 System.IO.File.Delete(extpath);
             }
@@ -115,33 +121,33 @@ namespace ProcessItems
         {
             MessageBox.Show(
                 "\n\rConnection String:"
-                + "\n" + Properties.Settings.Default.ConString
+                + "\n" + ConString
                 + "\n \rArchive Path:"
-                + "\n" + Properties.Settings.Default.ArchivePath
+                + "\n" + ArchivePath
                 + "\n \rDefault File Path:"
-                + "\n" + Properties.Settings.Default.DefPath
+                + "\n" + DefPath
                 + "\n \rUnzip Folder Name:"
-                + "\n" + Properties.Settings.Default.unZipFldrName
+                + "\n" + unZipFldrName
                 + "\n \rWork Table Header:"
-                + "\n" + Properties.Settings.Default.WTName
+                + "\n" + WTName
                 + "\n \rWork Table Database:"
-                + "\n" + Properties.Settings.Default.InsertDB
+                + "\n" + InsertDB
                 + "\n \rPublishing Database:"
-                + "\n" + Properties.Settings.Default.PubDB
+                + "\n" + PubDB
                 + "\n \rArchive Folder Name:"
-                + "\n" + Properties.Settings.Default.ArchiveFldrName
+                + "\n" + ArchiveFldrName
                 + "\n \rImage Query:"
-                + "\n" + Properties.Settings.Default.ImgSelList
+                + "\n" + ImgSelList
                 + "\n \rDocument Query: "
-                + "\n" + Properties.Settings.Default.DocSelList
+                + "\n" + DocSelList
                 + "\n \rDescription Query:"
-                + "\n" + Properties.Settings.Default.DesSelList
+                + "\n" + DesSelList
                 + "\n \rFeatures Query:"
-                + "\n" + Properties.Settings.Default.FeaSelList
+                + "\n" + FeaSelList
                 + "\n \rKeywords Query:"
-                + "\n" + Properties.Settings.Default.KeySelList
+                + "\n" + KeySelList
                 + "\n \rVideo query:"
-                + "\n" + Properties.Settings.Default.VidSelList
+                + "\n" + VidSelList
                 + "\n \rApplication Version:"
                 + "\n" + Properties.Settings.Default.Version,
                 "User Configuration"

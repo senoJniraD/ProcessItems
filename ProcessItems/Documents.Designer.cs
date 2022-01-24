@@ -67,6 +67,7 @@ namespace ProcessItems
             this.button2.TabIndex = 1;
             this.button2.Text = "Verify";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -89,6 +90,7 @@ namespace ProcessItems
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(805, 507);
             this.dataGridView1.TabIndex = 1;
+           
             // 
             // Documents
             // 
