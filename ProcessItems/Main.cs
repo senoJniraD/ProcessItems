@@ -55,7 +55,18 @@ namespace ProcessItems
             DataGridViewSelectedCellCollection DGV = this.fileList.SelectedCells;
             for (int i = 0; i <= DGV.Count - 1; i++)
             {
-                textBox1.Text = DGV[i].Value.ToString();
+                textBox1.Text = "File Info:\n \r " + DGV[i].Value.ToString() + 
+                    "Data Would be displayed here \n \r"+
+                    "With other file info \n \r"+
+                                        "Data Would be displayed here \n \r" +
+                    "With other file info \n \r" +
+                                        "Data Would be displayed here \n \r" +
+                    "With other file info \n \r" +
+                                        "Data Would be displayed here \n \r" +
+                    "With other file info \n \r" +
+                                        "Data Would be displayed here \n \r" +
+                    "With other file info \n \r";
+               
             }
 
         }
@@ -146,7 +157,7 @@ namespace ProcessItems
                 + "\n" + FeaSelList
                 + "\n \rKeywords Query:"
                 + "\n" + KeySelList
-                + "\n \rVideo query:"
+                + "\n \rVideo Query:"
                 + "\n" + VidSelList
                 + "\n \rApplication Version:"
                 + "\n" + Properties.Settings.Default.Version,

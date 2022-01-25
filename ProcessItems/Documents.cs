@@ -44,13 +44,16 @@ namespace ProcessItems
             string query = "SELECT * FROM Sales.SalesOrderHeader"; //will be doc select list
             sqlConn.Open();
             SqlCommand cmd = new SqlCommand(query, sqlConn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            
+            SqlDataAdapter da = new SqlDataAdapter(cmd);          
             dt.Clear();
             da.Fill(dt);
             sqlConn.Close();
-
             dataGridView1.DataSource = dt;
+            dataGridView1.ReadOnly = false;
+
+            label1.Text = "Rows: "+dt.Rows.Count.ToString();
+
+            
         }
 
 
@@ -66,14 +69,51 @@ namespace ProcessItems
                 " where [SalesOrderID] = @sID", sqlConn);
 
             SqlDataAdapter da = new SqlDataAdapter(updateCmd);
-
             updateCmd.Parameters.Add("@rev", SqlDbType.Int, 1, "RevisionNumber");
             updateCmd.Parameters.Add("@sID", SqlDbType.Int, 6, "SalesOrderID");
-
             da.UpdateCommand = updateCmd;
             da.Update(dt);
+            dataGridView1.DataSource = null;
             sqlConn.Close();
             sqlConn.Dispose();
+
+
+
+            SqlConnection sqlConn2 = new SqlConnection(ConString);
+            string query = "SELECT * FROM Sales.SalesOrderHeader where RevisionNumber = 66 or RevisionNumber = 122"; //will be doc select list
+            SqlCommand cmd = new SqlCommand(query, sqlConn2);
+            SqlDataAdapter da2 = new SqlDataAdapter(cmd);
+            sqlConn2.Open();
+            dt.Clear();
+            da2.Fill(dt);
+            dataGridView1.DataSource = dt;
+            label1.Text = "Rows: " + dt.Rows.Count.ToString();
+            sqlConn2.Close();
+            sqlConn2.Dispose();
+
+            if (label1.Text == "Rows: 0")
+            {
+                MessageBox.Show("There are no errors to process. You may now publish! \n \r WorkTable has now ben locked for review only!","Verification Complete!");
+
+                SqlConnection sqlConn3 = new SqlConnection(ConString);
+                string query1 = "SELECT * FROM Sales.SalesOrderHeader"; //will be doc select list
+                SqlCommand cmd1 = new SqlCommand(query1, sqlConn3);
+                SqlDataAdapter da3 = new SqlDataAdapter(cmd1);
+                sqlConn3.Open();
+                dt.Clear();
+                da3.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.ReadOnly = true;
+                label1.Text = "Rows: " + dt.Rows.Count.ToString();
+
+                sqlConn3.Close();
+                sqlConn3.Dispose();
+
+            }
+
+            
+            
+            
         }
     }
 }
