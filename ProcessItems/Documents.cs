@@ -69,7 +69,7 @@ namespace ProcessItems
                 " where [SalesOrderID] = @sID", sqlConn);
 
             SqlDataAdapter da = new SqlDataAdapter(updateCmd);
-            updateCmd.Parameters.Add("@rev", SqlDbType.Int, 1, "RevisionNumber");
+            updateCmd.Parameters.Add("@rev", SqlDbType.Int, 6, "RevisionNumber");
             updateCmd.Parameters.Add("@sID", SqlDbType.Int, 6, "SalesOrderID");
             da.UpdateCommand = updateCmd;
             da.Update(dt);
@@ -113,6 +113,11 @@ namespace ProcessItems
 
             
             
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             
         }
     }
