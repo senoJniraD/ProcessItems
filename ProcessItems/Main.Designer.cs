@@ -51,6 +51,8 @@ namespace ProcessItems
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Lan = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,6 +110,8 @@ namespace ProcessItems
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.Lan);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.label1);
@@ -294,6 +298,28 @@ namespace ProcessItems
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(102, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Language:";
+            // 
+            // Lan
+            // 
+            this.Lan.FormattingEnabled = true;
+            this.Lan.Items.AddRange(new object[] {
+            "EN",
+            "ES",
+            "FR"});
+            this.Lan.Location = new System.Drawing.Point(103, 31);
+            this.Lan.Name = "Lan";
+            this.Lan.Size = new System.Drawing.Size(78, 23);
+            this.Lan.TabIndex = 8;
+            this.Lan.Text = "EN";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -339,6 +365,8 @@ namespace ProcessItems
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox Lan;
     }
 }
 

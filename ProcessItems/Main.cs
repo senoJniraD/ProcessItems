@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -23,6 +25,15 @@ namespace ProcessItems
         string FeaSelList = Properties.Settings.Default.FeaSelList;
         string KeySelList = Properties.Settings.Default.KeySelList;
         string VidSelList = Properties.Settings.Default.VidSelList;
+
+        SqlConnection connection;
+        private SqlDataAdapter adapter;
+        SqlCommandBuilder cmdBuilder;
+        DataSet ds = new DataSet();
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader dr;
+        DataSet changes;
 
 
         public Main()
@@ -52,6 +63,44 @@ namespace ProcessItems
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            using (SqlConnection con = new SqlConnection(ConString))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_pies", con))
+                {
+
+                    try
+                    {
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@FUNCTION", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.AddWithValue("@TABLE", SqlDbType.VarChar).Value = "NUL";
+                        cmd.Parameters.AddWithValue("@COLUMN", SqlDbType.VarChar).Value = "NUL";
+                        cmd.Parameters.AddWithValue("@NEW", SqlDbType.VarChar).Value = "NUL";
+                        cmd.Parameters.AddWithValue("@OLD", SqlDbType.VarChar).Value = "NUL";
+                        cmd.Parameters.AddWithValue("@Language", SqlDbType.VarChar).Value = Lan.Text;
+                        cmd.Parameters.AddWithValue("@DESTINATION", SqlDbType.VarChar).Value = "NUL";
+
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                       
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                  
+
+                }
+            }
+
+
             DataGridViewSelectedCellCollection DGV = this.fileList.SelectedCells;
             for (int i = 0; i <= DGV.Count - 1; i++)
             {

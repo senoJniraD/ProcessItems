@@ -118,6 +118,43 @@ namespace ProcessItems
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            using (SqlConnection con = new SqlConnection(ConString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DBO.AIO_TEST", con))
+                {
+
+                    try
+                    {
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        //cmd.Parameters.AddWithValue("@FUNCTION", SqlDbType.VarChar).Value = "1";
+                        //cmd.Parameters.AddWithValue("@TABLE", SqlDbType.VarChar).Value = "NUL";
+                        //cmd.Parameters.AddWithValue("@COLUMN", SqlDbType.VarChar).Value = "NUL";
+                        //cmd.Parameters.AddWithValue("@NEW", SqlDbType.VarChar).Value = "NUL";
+                        //cmd.Parameters.AddWithValue("@OLD", SqlDbType.VarChar).Value = "NUL";
+                        //cmd.Parameters.AddWithValue("@LANGUAGE", SqlDbType.VarChar).Value = Lan.Text;
+                        //cmd.Parameters.AddWithValue("@DESTINATION", SqlDbType.VarChar).Value = "NUL";
+
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+
+                    
+
+                }
+            }
+
+
+
             
         }
     }
