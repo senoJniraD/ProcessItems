@@ -64,41 +64,41 @@ namespace ProcessItems
         private void button1_Click(object sender, EventArgs e)
         {
 
-            using (SqlConnection con = new SqlConnection(ConString))
-            {
-                using (SqlCommand cmd = new SqlCommand("sp_pies", con))
-                {
+            //using (SqlConnection con = new SqlConnection(ConString))
+            //{
+            //    using (SqlCommand cmd = new SqlCommand("sp_pies", con))
+            //    {
 
-                    try
-                    {
+            //        try
+            //        {
 
-                        cmd.CommandType = CommandType.StoredProcedure;
+            //            cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@FUNCTION", SqlDbType.VarChar).Value = "1";
-                        cmd.Parameters.AddWithValue("@TABLE", SqlDbType.VarChar).Value = "NUL";
-                        cmd.Parameters.AddWithValue("@COLUMN", SqlDbType.VarChar).Value = "NUL";
-                        cmd.Parameters.AddWithValue("@NEW", SqlDbType.VarChar).Value = "NUL";
-                        cmd.Parameters.AddWithValue("@OLD", SqlDbType.VarChar).Value = "NUL";
-                        cmd.Parameters.AddWithValue("@Language", SqlDbType.VarChar).Value = Lan.Text;
-                        cmd.Parameters.AddWithValue("@DESTINATION", SqlDbType.VarChar).Value = "NUL";
+            //            cmd.Parameters.AddWithValue("@FUNCTION", SqlDbType.VarChar).Value = "1";
+            //            cmd.Parameters.AddWithValue("@TABLE", SqlDbType.VarChar).Value = "NUL";
+            //            cmd.Parameters.AddWithValue("@COLUMN", SqlDbType.VarChar).Value = "NUL";
+            //            cmd.Parameters.AddWithValue("@NEW", SqlDbType.VarChar).Value = "NUL";
+            //            cmd.Parameters.AddWithValue("@OLD", SqlDbType.VarChar).Value = "NUL";
+            //            cmd.Parameters.AddWithValue("@Language", SqlDbType.VarChar).Value = Lan.Text;
+            //            cmd.Parameters.AddWithValue("@DESTINATION", SqlDbType.VarChar).Value = "NUL";
 
 
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+            //            con.Open();
+            //            cmd.ExecuteNonQuery();
+            //            con.Close();
 
                        
 
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show(ex.ToString());
+            //        }
                   
 
-                }
-            }
+            //    }
+            //}
 
 
             DataGridViewSelectedCellCollection DGV = this.fileList.SelectedCells;
