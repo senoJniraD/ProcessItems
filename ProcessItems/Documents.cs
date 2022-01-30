@@ -15,19 +15,9 @@ namespace ProcessItems
     {
 
         string ConString = Properties.Settings.Default.ConString;
-        string ArchivePath = Properties.Settings.Default.ArchivePath;
-        string DefPath = Properties.Settings.Default.DefPath;
-        string unZipFldrName = Properties.Settings.Default.unZipFldrName;
         string WTName = Properties.Settings.Default.WTName;
-        string InsertDB = Properties.Settings.Default.InsertDB;
-        string PubDB = Properties.Settings.Default.PubDB;
-        string ArchiveFldrName = Properties.Settings.Default.ArchiveFldrName;
-        string ImgSelList = Properties.Settings.Default.ImgSelList;
         string DocSelList = Properties.Settings.Default.DocSelList;
-        string DesSelList = Properties.Settings.Default.DesSelList;
-        string FeaSelList = Properties.Settings.Default.FeaSelList;
-        string KeySelList = Properties.Settings.Default.KeySelList;
-        string VidSelList = Properties.Settings.Default.VidSelList;
+
 
         DataTable dt = new DataTable();
 
@@ -53,7 +43,7 @@ namespace ProcessItems
 
             label1.Text = "Rows: "+dt.Rows.Count.ToString();
 
-            
+            button1.Text = "Load Table";
         }
 
 
@@ -93,7 +83,7 @@ namespace ProcessItems
 
             if (label1.Text == "Rows: 0")
             {
-                MessageBox.Show("There are no errors to process. You may now publish! \n \r WorkTable has now ben locked for review only!","Verification Complete!");
+                MessageBox.Show("There are no errors to process. You may now publish! \n \r WorkTable has now been locked for review only!","Verification Complete!");
 
                 SqlConnection sqlConn3 = new SqlConnection(ConString);
                 string query1 = "SELECT * FROM Sales.SalesOrderHeader"; //will be doc select list
@@ -109,16 +99,14 @@ namespace ProcessItems
                 sqlConn3.Close();
                 sqlConn3.Dispose();
 
-            }
-
-            
-            
+                button1.Text = "Unlock Table";
+            }           
             
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Would you like to proceed to publish "+ dt.Rows.Count.ToString() +" rows of data to the database?", "Publish Data?");
             using (SqlConnection con = new SqlConnection(ConString))
             {
                 using (SqlCommand cmd = new SqlCommand("DBO.AIO_TEST", con))
@@ -146,16 +134,27 @@ namespace ProcessItems
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
-                    }
-
-                    
+                    }                  
 
                 }
             }
 
+            dt.Clear();
 
+            dataGridView1.DataSource = null;
 
-            
+            button1.Text = "Load Table";
+
+            MessageBox.Show("You have published your work table!", "Publish Complete!");
+
+            label1.Text = "Rows: 0";
+        }
+
+        private void Documents_Load(object sender, EventArgs e)
+        {
+            button1.Text = "Load Table";
+
+            label1.Text = "Rows: 0";
         }
     }
 }

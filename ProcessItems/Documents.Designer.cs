@@ -115,6 +115,7 @@ namespace ProcessItems
             this.MinimumSize = new System.Drawing.Size(968, 571);
             this.Name = "Documents";
             this.Text = "Documents";
+            this.Load += new System.EventHandler(this.Documents_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
