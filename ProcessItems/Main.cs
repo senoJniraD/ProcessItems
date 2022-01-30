@@ -122,7 +122,7 @@ namespace ProcessItems
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Are you sure you want to unzip this file?", "Unzip?");
             string extpath;
 
             DataGridViewSelectedCellCollection DGV = this.fileList.SelectedCells;
@@ -131,7 +131,7 @@ namespace ProcessItems
                 extpath = DGV[i].Value.ToString();
                 ZipFile.ExtractToDirectory(extpath, Path.GetDirectoryName(extpath) + unZipFldrName);
             }
-
+            MessageBox.Show("File has been unzipped!", "unzipped!");
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -149,6 +149,8 @@ namespace ProcessItems
 
         private void button9_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to archive this file?","Archive?");
+
             string extpath;
             string filename;
             {
@@ -174,6 +176,8 @@ namespace ProcessItems
             {
                 fileList.Rows.Add(file);
             }
+
+            MessageBox.Show(extpath + "\n has been moved to \n" + Path.GetDirectoryName(extpath) + ArchiveFldrName + filename, "Archived!");
 
         }
 
